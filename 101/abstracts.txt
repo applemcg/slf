@@ -1,0 +1,12 @@
+name       	abstract                                        
+----       	--------                                        
+sfg1       	GREP from the Functions in the ENVIRONMENT      
+functions  	identify unique function on named files OR stdin
+fbdy       	function bodies                                 
+comment    	arguments to Stderr                             
+debug      	dummy to fill occasional calls                  
+pause      	dummy to fill occasional calls                  
+slf_help   	for the library                                 
+slf_init   	source BALIB, then run slf_init                 
+slf_list   	Shell Library 101, library function list        
+slf_primary	the ones Needing Backup                         

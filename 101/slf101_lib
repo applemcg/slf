@@ -1,0 +1,75 @@
+sfg1 () 
+{ 
+    : GREP from the Functions in the ENVIRONMENT;
+    : date: 2023-08-02;
+    : date: 2024-08-20;
+    debug ENTRY $@ $#;
+    set | functions | grep "$1"
+}
+functions () 
+{ 
+    : identify unique function on named files OR stdin;
+    : related: eachfunction;
+    : date: 2023-07-12;
+    : date: 2024-09-14;
+    debug ENTRY $# $@;
+    awk '$2 ~ /^[(][)]$/ && $1 !~ /^_/ && !p[$1]++ { print $1 }' $@
+}
+fbdy () 
+{ 
+    : function bodies;
+    : date: 2023-08-27;
+    : date: 2024-01-10;
+    declare -f ${@:-fbdy}
+}
+comment () 
+{
+    : arguments to Stderr
+    echo $@ 1>&2
+}
+debug () 
+{
+    : dummy to fill occasional calls
+    return
+}
+pause () 
+{
+    : dummy to fill occasional calls
+    return
+}
+slf_help () 
+{ 
+    : for the library;
+    cat <<EOF
+ study  sequence: 
+    0. abstracts.txt -- function abstrats,
+    1. fbdy  
+    2. functions
+    3. sfg1
+    4. slf_init
+    5. slf_list
+    6. slf_help
+    7. comment -- from common library
+    8. debug, pause. "
+
+  enjoy,
+    ~ Marty
+      martymcg@fastmail.com
+
+EOF
+
+}
+slf_init () 
+{ 
+    : source slf101_lib, then run slf_init;
+    local lib=./slf101_lib;
+    slf_list fbdy | tee $lib;
+    comment $(ls -l $lib)
+    comment if you can, back-up $lib
+}
+slf_list () 
+{ 
+    : Shell Library 101, library function list;
+    ${*:-echo} sfg1 functions fbdy comment debug pause \
+               slf_{help,init,list}
+}

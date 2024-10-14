@@ -1,0 +1,11 @@
+name     	abstract                                        
+----     	--------                                        
+sfg1     	GREP from the Functions in the ENVIRONMENT      
+functions	identify unique function on named files OR stdin
+fbdy     	function bodies                                 
+comment  	                                                
+debug    	                                                
+pause    	                                                
+ba_help  	for the library                                 
+ba_init  	source BALIB, then run ba_init                  
+ba_list  	Shell Library 101, library function list        

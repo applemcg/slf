@@ -1,0 +1,26 @@
+domk () {
+: local Make Function 
+
+set -- slf101_lib;
+source $1
+abstracts $(functions $1)| jm >  abstracts.txt
+slf_primary backup 
+llrt .bak
+}
+slf_primary () 
+{ 
+    : the ones Needing Backup;
+    : others such as abstracts.txt, README.html are
+    : mainteinted by the developers
+    ${*:-echo} slf101_lib path_fragment.txt README.md
+}
+runmk () 
+{
+   domk
+   fbdy $(functions mk) > mk.nxt
+   echo comment runmk  >> mk.nxt
+   comment diff mk{,.nxt]
+   diff mk{,.nxt} 1>&2
+}
+comment runmk  
+   

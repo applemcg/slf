@@ -1,0 +1,6 @@
+
+    : once Set, SLF_PATH does not change
+    : ${SLF_PATH:=$PATH}
+    export SLF_PATH
+    PATH=${SLF_PATH}:$HOME/bin
+    source $HOME/bin/slf101_lib

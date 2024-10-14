@@ -1,0 +1,6 @@
+
+    : once Set, SYSTEM_SUPPLIED_PATH does not change
+    : ${SYSTEM_SUPPLIED_PATH:=$PATH}
+    export SYSTEM_SUPPLIED_PATH
+    PATH=${SYSTEM_SUPPLIED_PATH}:$HOME/bin
+

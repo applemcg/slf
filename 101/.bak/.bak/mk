@@ -1,0 +1,18 @@
+domk () {
+: local Mkfunction 
+report_notfunction libshar  && return 1;
+
+mkdir -p  $(libshar)/.email
+
+set -- slf_lib;
+source $1
+abstracts $(functions $1)| jm >  abstracts.txt
+shar $1  path_fragment.txt    > $(libshar)/slf101.sh
+ln -f abstracts.txt README.txt  $(libshar)/.email
+find $(libshar) -type f
+backup $1 mk {README,abstracts,path_fragment}.txt
+llrt .bak
+}
+domk
+fbdy domk 1>&2
+echo libshar pushd 1>&2
